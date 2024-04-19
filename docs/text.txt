@@ -1,0 +1,71 @@
+morgan("combined")
+morgan("dev")
+morgan("common")
+morgan("short")
+morgan("tiny")
+
+app --watch app.js
+curl http://localhost:8000/
+npm i helmet
+npm i compression: tối ưu băng thông
+
+------------------------------------------------
+
+Thư viện process trong Node.js cung cấp các phương thức và thuộc tính để tương tác với quy trình hiện tại của ứng dụng Node.js. Dưới đây là một số chức năng chính của thư viện process:
+process.argv: Mảng chứa các đối số dòng lệnh được truyền vào khi khởi chạy ứng dụng Node.js.
+process.env: Đối tượng chứa các biến môi trường của quy trình.
+process.cwd(): Trả về thư mục làm việc hiện tại của ứng dụng Node.js.
+process.exit([code]): Kết thúc quy trình Node.js với mã thoát được cung cấp. Mặc định là 0.
+process.pid: Trả về ID quy trình của quy trình Node.js.
+process.platform: Trả về nền tảng hệ điều hành của hệ thống (ví dụ: 'darwin', 'win32', 'linux').
+process.version: Trả về phiên bản của Node.js.
+process.memoryUsage(): Trả về thông tin về việc sử dụng bộ nhớ của quy trình Node.js.
+process.uptime(): Trả về thời gian hệ thống đã chạy từ khi khởi đầu quy trình Node.js (tính bằng giây).
+process.stdin, process.stdout, process.stderr: Luồng đầu vào, đầu ra và lỗi tiêu chuẩn của quy trình Node.js.
+
+-----------------------------
+
+Thư viện os trong Node.js cung cấp các phương thức để tương tác với hệ điều hành. Dưới đây là một số chức năng chính của thư viện os:
+os.hostname(): Trả về tên máy chủ của hệ thống.
+os.platform(): Trả về nền tảng hệ điều hành của hệ thống (ví dụ: 'darwin', 'win32', 'linux').
+os.arch(): Trả về kiến trúc của bộ xử lý của hệ thống (ví dụ: 'x64', 'arm').
+os.cpus(): Trả về thông tin về các CPU trên hệ thống.
+os.totalmem(): Trả về tổng bộ nhớ hệ thống (tính bằng byte).
+os.freemem(): Trả về bộ nhớ trống trên hệ thống (tính bằng byte).
+os.networkInterfaces(): Trả về thông tin về các giao diện mạng trên hệ thống.
+os.tmpdir(): Trả về thư mục thời gian chạy của hệ thống để lưu trữ tệp tạm thời.
+os.type(): Trả về tên của hệ điều hành (ví dụ: 'Linux', 'Windows_NT').
+os.uptime(): Trả về thời gian hệ thống đã chạy (tính bằng giây).
+
+const hodelShop = await shopModel.findOne({ email }).lean();
+
+Trong Node.js, module crypto cung cấp một loạt các phương thức để thực hiện các thao tác mã hóa, giải mã và bảo mật. Dưới đây là một số chức năng chính của module crypto:
+
+Mã hóa và giải mã hash: Module crypto cho phép bạn tạo mã hash từ dữ liệu đầu vào và kiểm tra tính hợp lệ của chúng.
+
+crypto.createHash(algorithm): Tạo một đối tượng băm theo thuật toán đã cho.
+hash.update(data[, inputEncoding]): Cập nhật băm với dữ liệu mới.
+hash.digest([encoding]): Trả về một băm đã được mã hóa.
+Mã hóa và giải mã symmetric (đối xứng): Module crypto cung cấp các phương thức để mã hóa và giải mã dữ liệu bằng cách sử dụng chung một khóa.
+
+crypto.createCipheriv(algorithm, key, iv): Tạo một đối tượng mã hóa theo thuật toán và khóa đã cho, sử dụng vector initialization (IV).
+cipher.update(data[, inputEncoding][, outputEncoding]): Mã hóa dữ liệu.
+cipher.final([outputEncoding]): Hoàn thành quá trình mã hóa và trả về dữ liệu mã hóa cuối cùng.
+Tương tự, có các phương thức tương ứng cho giải mã: crypto.createDecipheriv(), decipher.update(), và decipher.final().
+
+
+// Import thư viện slugify
+const slugify = require('slugify');
+
+// Chuỗi ban đầu
+const originalString = "Đây là một Tiêu đề Đơn giản về Việc Sử dụng Slugify";
+
+// Tạo slug từ chuỗi ban đầu
+const slug = slugify(originalString, {
+    lower: true, // Chuyển đổi thành chữ thường
+    strict: true // Xóa bỏ các ký tự không hợp lệ
+});
+
+// In ra slug
+console.log("Slug:", slug);
+
