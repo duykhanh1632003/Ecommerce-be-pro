@@ -10,7 +10,7 @@ const inventorySchema = new mongoose.Schema(
     inven_stock: { type: Number, require: true },
     inven_shopId: { type: mongoose.Schema.Types.ObjectId, ref: "shop" },
     inven_reservations: { type: Array, default: {} },
-  },
+  },  
   {
     timestamps: true,
     collection: COLLECTION_NAME,

@@ -62,7 +62,7 @@ class ProductFactory {
       select: [
         "product_name",
         "product_price",
-        "product_image",
+        "product_shop",
         "product_thumb",
       ],
     });
@@ -99,9 +99,9 @@ class Product {
       await insertInventory({
         productId: newProduct._id,
         shopId: this.product_shop,
-        stock:this.product_quantity
+        stock: this.product_quantity,
       });
-    } 
+    }
     return newProduct;
   }
 }

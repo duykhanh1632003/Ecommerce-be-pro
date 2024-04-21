@@ -19,6 +19,7 @@ const discountSchema = new mongoose.Schema(
     discount_min_order_value: { type: Number, require: true },
     discount_shopId: { type: mongoose.Schema.Types.ObjectId, ref: "shop" },
     discount_is_active: { type: Boolean, default: true },
+
     discount_applies_to: {
       type: String,
       require: true,

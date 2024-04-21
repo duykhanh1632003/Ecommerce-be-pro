@@ -138,14 +138,14 @@ class Furniture extends Product {
       await updateProductById({
         productId,
         bodyUpdate: updateNestedObjectParser(objectParams),
-        model: furniture,
+        model: furniture, 
       });
     }
     const updateProduct = await super.updateProduct(
       productId,
       updateNestedObjectParser(objectParams)
     );
-    return updateProduct;
+    return updateProduct; 
   }
 }
 

@@ -2,7 +2,11 @@
 
 const mongoose = require("mongoose");
 const { product } = require("../product.model");
-const { getSelectData, unGetSelectData } = require("../../utils");
+const {
+  getSelectData,
+  unGetSelectData,
+  convertToObjectIdMongodb,
+} = require("../../utils");
 
 const publishProductByShop = async ({ product_shop, product_id }) => {
   const shop = await product.findOne({
@@ -79,13 +83,34 @@ const updateProductById = async ({
   productId,
   bodyUpdate,
   model,
-  isNew = true, 
+  isNew = true,
 }) => {
   return await model.findByIdAndUpdate({
     productId,
     bodyUpdate,
     model: product,
   });
+};
+
+const getProductById = async (productId) => {
+  return await product
+    .findById({ _id: convertToObjectIdMongodb(productId) })
+    .lean();
+};
+
+const checkProductByServer = async (product) => {
+  return await Promise.all(
+    product.map(async (product) => {
+      const foundProduct = await getProductById(product.productId);
+      if (!foundProduct) {
+        return {
+          price: foundProduct.product_price,
+          quantity: product.quantity,
+          productId: product.productId,
+        };
+      }
+    })
+  );
 };
 
 module.exports = {
@@ -95,5 +120,7 @@ module.exports = {
   searchProductByUser,
   findAllProducts,
   findProduct,
+  getProductById,
   updateProductById,
+  checkProductByServer,
 };
